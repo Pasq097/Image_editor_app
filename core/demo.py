@@ -1,4 +1,4 @@
-from tkinter import ttk, Tk, PhotoImage, RIDGE
+from tkinter import ttk, Tk, PhotoImage, RIDGE, Canvas
 
 
 # GUI graphical user interface
@@ -76,6 +76,21 @@ class FrontEnd:
                                                                                       sticky='sw'
                                                                                       )
 
+        self.apply_and_cancel = ttk.Frame(self.master)
+        self.apply_and_cancel.pack()
+
+        ttk.Button(self.apply_and_cancel, text='Apply', command=self.apply_action).grid(row=0, column=0, padx=5,pady=5, sticky='sw')
+
+        ttk.Button(self.apply_and_cancel, text='Cancel', command=self.cancel_action).grid(row=0, column=1, padx=5, pady=5,
+                                                                                          sticky='sw')
+
+        ttk.Button(self.apply_and_cancel, text='Revert all changes', command=self.revert_action).grid(row=0, column=2,
+                                                                                          padx=5, pady=5,
+                                                                                          sticky='sw')
+
+        self.canvas = Canvas(self.frame_menu, bg='gray', width = 300, height = 400)
+        self.canvas.grid(row=0, column=1,rowspan=10)
+
     def upload_action(self):
         pass
 
@@ -105,6 +120,16 @@ class FrontEnd:
 
     def adjust_action(self):
         pass
+
+    def apply_action(self):
+        pass
+
+    def cancel_action(self):
+        pass
+
+    def revert_action(self):
+        pass
+
 
 
 root = Tk()
